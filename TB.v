@@ -1,115 +1,33 @@
 module TB();
-reg serin ,clkpb , rst , clk;
-wire p0 ,p1 ,p2 ,p3 ,done ,valid;
-wire[6:0] ssd;
-MSSD all(.serin(serin), .clkpb(clkpb), .clk(clk), .rst(rst), .p0(p0) ,.p1(p1) ,.p2(p2) ,.p3(p3) ,.done(done) ,.valid(valid) ,.sevseg(ssd));
+reg rst, clk;
+wire[7:0] out, out_tri, out_rect;
+WaveGen all(.clk(clk), .rst(rst), .out(out), .out_tri(out_tri), .out_rect(out_rect));
 
 always begin
     #10 clk=~clk;
 end
 
 initial begin
-    clkpb = 0;
     rst = 1;
-    serin = 1;
     clk = 0;
     #20 rst = 0;
-    
-    #30 serin = 0;//0
-    #50 clkpb = 1;
-    #50 clkpb = 0;
+    #10000 $stop;
+end
+endmodule
 
-    #30 serin = 1;//10
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 0;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
+module DDS_TB();
+reg rst, clk;
+wire[7:0] sine, full, half;
+DDS all(.clk(clk), .rst(rst), .sine(sine), .full_wave(full), .half_wave(half));
 
-    #30 serin = 0;//0011
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 0;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 1;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 1;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-
-    #30 serin = 1;//110
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 1;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 0;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-
-    #30 serin = 1;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 1;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-
-    #30 rst = 0;//rst
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-
-    #30 serin = 0;//0
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-
-    #30 serin = 1;//10
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 0;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-
-    #30 serin = 0;//0011
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 0;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 1;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 1;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-
-    #30 serin = 1;//110
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 1;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 0;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-
-    #30 serin = 1;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #30 serin = 1;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-    #50 clkpb = 1;
-    #50 clkpb = 0;
-
-    #1000 $stop;
+always begin
+    #10 clk=~clk;
 end
 
+initial begin
+    rst = 1;
+    clk = 0;
+    #20 rst = 0;
+    #10000 $stop;
+end
 endmodule

@@ -1,52 +1,31 @@
-C:/Users/AliGH/Desktop/LAB1/MSSD.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/LAB1/MSSD.v
+C:/Users/AliGH/Desktop/DLD_LAB/WaveGen.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/DLD_LAB/WaveGen.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module MSSD
+-- Compiling module WaveGen
 
 Top level modules:
-	MSSD
+	WaveGen
 
-} {} {}} C:/Users/AliGH/Desktop/LAB1/Demux.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/LAB1/Demux.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module Demux
-
-Top level modules:
-	Demux
-
-} {} {}} C:/Users/AliGH/Desktop/LAB1/Counter.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/LAB1/Counter.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module Counter
--- Compiling module LdCounter
-
-Top level modules:
-	Counter
-	LdCounter
-
-} {} {}} C:/Users/AliGH/Desktop/LAB1/one_pulser.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/LAB1/one_pulser.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module OnePulser
-
-Top level modules:
-	OnePulser
-
-} {} {}} C:/Users/AliGH/Desktop/LAB1/ShReg.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/LAB1/ShReg.v
-Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module ShReg
-
-Top level modules:
-	ShReg
-
-} {} {}} C:/Users/AliGH/Desktop/LAB1/TB.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/LAB1/TB.v
+} {} {}} C:/Users/AliGH/Desktop/DLD_LAB/TB.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/DLD_LAB/TB.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module TB
+-- Compiling module DDS_TB
 
 Top level modules:
 	TB
+	DDS_TB
 
-} {} {}} C:/Users/AliGH/Desktop/LAB1/SSD.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/LAB1/SSD.v
+} {} {}} C:/Users/AliGH/Desktop/DLD_LAB/DDS.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/DLD_LAB/DDS.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
--- Compiling module SSD
+-- Compiling module DDS
 
 Top level modules:
-	SSD
+	DDS
+
+} {} {}} C:/Users/AliGH/Desktop/DLD_LAB/Counter.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/DLD_LAB/Counter.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Counter
+
+Top level modules:
+	Counter
 
 } {} {}}
