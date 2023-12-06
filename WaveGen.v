@@ -4,7 +4,7 @@ output reg[7:0] out, out_tri, out_rect;
 
 wire[7:0] _x;
 
-Counter #(8) x_counter(.clk(clk), .rst(rst), .cnt(1), .out(_x));
+Counter #(8) x_counter(.clk(clk), .rst(rst), .cnt(1'b1), .out(_x), .co());
 
 always @(posedge clk, posedge rst) begin
     if(rst) out = 0;

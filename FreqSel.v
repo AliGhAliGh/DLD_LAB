@@ -7,7 +7,15 @@ reg[8:0] counter;
 
 always @(posedge clk, posedge rst) begin
     if(rst) counter = 0;
-    else if(ld | co) counter = {sw, 4'b0};
-    else {co, counter} = counter + 1;
+    else begin
+        if(ld) counter = {sw, 4'b1111};
+        else begin
+            if(co) begin
+                counter = {sw, 4'b0};
+                co = 0;
+            end
+            else {co, counter} = counter + 1;
+        end
+    end
 end
 endmodule

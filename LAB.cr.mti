@@ -5,14 +5,37 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 Top level modules:
 	WaveGen
 
+} {} {}} C:/Users/AliGH/Desktop/DLD_LAB/AmpSel.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/DLD_LAB/AmpSel.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module AmpSel
+
+Top level modules:
+	AmpSel
+
+} {} {}} C:/Users/AliGH/Desktop/DLD_LAB/FuncGen.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/DLD_LAB/FuncGen.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module FuncGen
+
+Top level modules:
+	FuncGen
+
+} {} {}} C:/Users/AliGH/Desktop/DLD_LAB/FreqSel.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/DLD_LAB/FreqSel.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module FreqSel
+
+Top level modules:
+	FreqSel
+
 } {} {}} C:/Users/AliGH/Desktop/DLD_LAB/TB.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/DLD_LAB/TB.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
 -- Compiling module TB
 -- Compiling module DDS_TB
+-- Compiling module FuncGenTB
 
 Top level modules:
 	TB
 	DDS_TB
+	FuncGenTB
 
 } {} {}} C:/Users/AliGH/Desktop/DLD_LAB/DDS.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/DLD_LAB/DDS.v
 Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
@@ -27,5 +50,19 @@ Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 
 
 Top level modules:
 	Counter
+
+} {} {}} C:/Users/AliGH/Desktop/DLD_LAB/Controller.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/DLD_LAB/Controller.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module Controller
+
+Top level modules:
+	Controller
+
+} {} {}} C:/Users/AliGH/Desktop/DLD_LAB/PWM.v {1 {vlog -work work -stats=none C:/Users/AliGH/Desktop/DLD_LAB/PWM.v
+Model Technology ModelSim - Intel FPGA Edition vlog 2020.1 Compiler 2020.02 Feb 28 2020
+-- Compiling module PWM
+
+Top level modules:
+	PWM
 
 } {} {}}

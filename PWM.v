@@ -10,5 +10,5 @@ always @(posedge clk, posedge rst) begin
     else counter = counter + 1;
 end
 
-assign out = counter > inp;
+assign out = inp > counter;
 endmodule

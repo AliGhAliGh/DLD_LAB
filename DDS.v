@@ -11,7 +11,7 @@ reg[7:0] rom[0:63];
 initial $readmemb("sine.mem", rom);
 
 Controller c(.clk(clk), .rst(rst), .sign(sign), .phase_pos(phase_pos), .next(next));
-Counter #(6) dp(.clk(clk), .rst(rst), .cnt(1), .out(addr), .co(next));
+Counter #(6) dp(.clk(clk), .rst(rst), .cnt(1'b1), .out(addr), .co(next));
 
 assign out_2 = (~addr) + 1;
 assign res_addr = phase_pos ? out_2 : addr;
@@ -19,7 +19,7 @@ assign out_rom = rom[res_addr];
 assign mag_sel = ~(|addr) & phase_pos;
 assign mag = mag_sel ? 255 : out_rom;
 assign out = {sign, (sign ? (((~mag) + 1) + 256) : mag)};
-assign sine = out[8:1];
-assign full_wave = sign ? -out[8:1] + 127 : out[8:1];
-assign half_wave = sign ? 64 : out[8:1];
+assign sine = out[8:1] << 1;
+assign full_wave = (sign ? -out[8:1] + 127 : out[8:1]) << 1;
+assign half_wave = (sign ? 64 : out[8:1]) << 1;
 endmodule
