@@ -6,15 +6,15 @@ output reg co;
 reg[8:0] counter;
 
 always @(posedge clk, posedge rst) begin
-    if(rst) counter = 1'd0;
+    if(rst) counter = 0;
     else begin
         if(ld) counter = {sw, 4'b1111};
         else begin
             if(co) begin
                 counter = {sw, 4'b0};
-                co = 1'd0;
+                co = 0;
             end
-            else {co, counter} = counter + 1'd1;
+            else {co, counter} = counter + 1;
         end
     end
 end

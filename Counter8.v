@@ -1,7 +1,6 @@
-module Counter (clk, rst, cnt, out, co);
+module Counter8 (clk, rst, cnt, out);
     input clk ,rst ,cnt;
-    output reg[5 : 0] out;
-    output co;
+    output reg[7 : 0] out;
 
     always @(posedge clk, posedge rst) begin
         if(rst) 
@@ -9,7 +8,5 @@ module Counter (clk, rst, cnt, out, co);
         else if(cnt)
             out = out + 1'd1;
     end
-
-    assign co = out == 6'b111111;
 endmodule
 

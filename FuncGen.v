@@ -6,9 +6,10 @@ input[1:0] amp_sel;
 output out;
 
 wire wave_clk;
-wire sine, half, full, out_1_x, out_tri, out_rect;
+wire[7:0] selected, res_wave;
 
-WaveGen wg(.clk(wave_clk), .rst(rst), .out(out_1_x), .out_tri(out_tri), .out_rect(out_rect));
+WaveformGenerator wg(.clk(wave_clk), .rst(rst), .sel(wave_sel), .out(selected));
 FreqSel fs(.clk(clk), .rst(rst), .sw(cnt_load), .ld(ld), .co(wave_clk));
-DDS dds(.clk(wave_clk), .rst(rst), .sine(sine), .full_wave(full), .half_wave(half));
+AmpSel ampsel(.wave(selected), .Sel(amp_sel), .divided_wave(res_wave));
+PWM pwm(.clk(clk), .rst(rst), .inp(res_wave), .out(out));
 endmodule
