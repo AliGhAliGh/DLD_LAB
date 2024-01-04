@@ -1,41 +1,41 @@
-module Controller(clk, rst, sign, phase_pos, next);
-input clk, rst, next;
-output reg sign, phase_pos;
+module Controller(clk, rst, wr_req, ldx, ldu, shl, eng_start, done, eng_done, start);
+input clk, rst, eng_done, start;
+output wr_req, ldx, ldu, shl, eng_start, done;
 
-parameter P1 = 2'b00 , P2 = 2'b01 , P3 = 2'b10 , P4 = 2'b11;
+reg[2:0] ps, ns;
+reg[1:0] count;
+wire cnt;
 
-reg[1:0] ns ,ps;
+parameter IDLE = 3'b000, WAIT = 3'b001, START = 3'b010, CALC = 3'b011, WRITE = 3'b100, DONE = 3'b101;
 
 always @(posedge clk, posedge rst) begin
-    if(rst) ps = P1;
+    if(rst) ps = IDLE;
     else ps = ns;
 end
 
-always @(next, ps) begin
-    ns = 2'bxx;
+always @(*) begin
+    ns = 3'b0;
     case (ps)
-        P1: begin 
-            ns = next ? P2 : P1;
-            phase_pos = 1'd0;
-            sign = 1'd0;
-            end
-        P2: begin 
-            ns = next ? P3 : P2;
-            phase_pos = 1'd1;
-            sign = 1'd0;
-            end
-        P3: begin 
-            ns = next ? P4 : P3;
-            phase_pos = 1'd0;
-            sign = 1'd1;
-            end
-        P4: begin 
-            ns = next ? P1 : P4;
-            phase_pos = 1'd1;
-            sign = 1'd1;
-            end
-        default: ns = 2'bxx;
+        IDLE: ns = start ? WAIT : IDLE; 
+        WAIT: ns = start ? WAIT : START; 
+        START: ns = CALC; 
+        CALC: ns = eng_done ? WRITE : CALC; 
+        WRITE: ns = count < 2'b11 ? START : DONE; 
+        DONE: ns = IDLE; 
+        default: ns = IDLE;
     endcase
 end
 
+always @(posedge clk, posedge rst) begin
+    if(rst) count = 2'b0;
+    else if(cnt) count = count + 1;
+end
+
+assign ldu = ps == WAIT;
+assign ldx = ps == WAIT;
+assign wr_req = ps == WRITE;
+assign shl = ps == WRITE;
+assign eng_start = ps == START;
+assign done = ps == DONE;
+assign cnt = ps == WRITE;
 endmodule
